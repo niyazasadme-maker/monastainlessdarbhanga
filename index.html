@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Darbhanga Jindal Stainless Steel &amp; Aluminium Works</title>
+<meta name="description" content="Custom stainless steel and aluminium fabrication in Shivdhara, Darbhanga. Gates, railings, sheds and more, made to order. Open 9 am - 7 pm, every day. Call 077830 12635.">
+<style>
+@font-face {
+  font-family: 'Inter';
+  src: url('inter-ui.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  --ink: #161214;
+  --ink-2: #5c5457;
+  --bg: #f7f5f4;
+  --card: #ffffff;
+  --hairline: rgba(22, 18, 20, .09);
+  --accent: #0e7a63;
+  --accent-ink: #ffffff;
+  --hero-ink: #ffffff;
+  --radius: 18px;
+  --shadow: 0 1px 2px rgba(22,18,20,.05), 0 8px 24px rgba(22,18,20,.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f2efee;
+    --ink-2: #b7adae;
+    --bg: #141114;
+    --card: #1f1b1f;
+    --hairline: rgba(242, 239, 238, .12);
+    --accent: #2fae8f;
+    --accent-ink: #0d0a0c;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: min(640px, 78svh);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #141114;
+}
+.hero-photos { position: absolute; inset: 0; }
+.hero-photos img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 55%;
+  opacity: 0;
+  animation: hero-xfade 20s ease-in-out infinite;
+}
+.hero-photos img:first-child { object-position: 32% 45%; }
+.hero-photos img:nth-child(2) { animation-delay: 5s; }
+.hero-photos img:nth-child(3) { animation-delay: 10s; }
+.hero-photos img:nth-child(4) { animation-delay: 15s; }
+@keyframes hero-xfade {
+  0% { opacity: 0; }
+  4% { opacity: 1; }
+  23% { opacity: 1; }
+  28% { opacity: 0; }
+  100% { opacity: 0; }
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,8,10,.44) 0%, rgba(10,8,10,.22) 32%, rgba(10,8,10,.58) 64%, rgba(10,8,10,.92) 100%);
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 1080px;
+  margin: 0 auto;
+  padding: 96px 22px 40px;
+  color: var(--hero-ink);
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; letter-spacing: .02em;
+  background: rgba(255,255,255,.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.22);
+  padding: 7px 13px; border-radius: 999px;
+}
+.eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade9d; }
+.hero h1 {
+  margin: 18px 0 10px;
+  font-size: clamp(30px, 7vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -.03em;
+  font-weight: 800;
+  max-width: 15ch;
+  text-shadow: 0 1px 14px rgba(0,0,0,.55), 0 0 3px rgba(0,0,0,.35);
+}
+.hero .sub {
+  font-size: clamp(15px, 2.4vw, 18px);
+  color: rgba(255,255,255,.92);
+  max-width: 46ch;
+  text-shadow: 0 1px 10px rgba(0,0,0,.5);
+}
+.hero-icons { display: flex; gap: 14px; margin-top: 26px; }
+.hero-icons a {
+  width: 54px; height: 54px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff; background: rgba(14,18,24,.42);
+  border: 1px solid rgba(255,255,255,.4);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  transition: transform .18s ease, background .18s ease;
+}
+.hero-icons a:hover { background: rgba(14,18,24,.62); }
+.hero-icons a:active { transform: scale(.94); }
+.hero-icons svg { width: 22px; height: 22px; }
+
+/* Language switch */
+.lang-switch {
+  position: fixed; top: 14px; right: 14px; z-index: 90;
+  display: flex; gap: 2px;
+  background: rgba(14,18,24,.55);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px; padding: 3px;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.lang-switch button {
+  border: 0; background: transparent; cursor: pointer;
+  color: rgba(255,255,255,.88);
+  font: inherit; font-size: 13px; font-weight: 650;
+  padding: 6px 13px; border-radius: 999px;
+}
+.lang-switch button.on { background: #fff; color: #14181e; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 15px; font-weight: 650;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  cursor: pointer;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 6px 18px rgba(14,122,99,.35); }
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-ghost {
+  background: rgba(255,255,255,.12); color: #fff;
+  border-color: rgba(255,255,255,.3);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.btn-ghost:hover { background: rgba(255,255,255,.2); }
+.btn-outline { background: var(--card); color: var(--ink); border-color: var(--hairline); box-shadow: var(--shadow); }
+.btn-outline:hover { transform: translateY(-1px); }
+.btn svg { flex: none; }
+
+/* Layout */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+section { padding: 56px 0 8px; }
+.section-head { margin-bottom: 22px; }
+.section-head .kicker {
+  font-size: 12.5px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent);
+}
+.section-head h2 {
+  margin-top: 6px;
+  font-size: clamp(22px, 4.6vw, 30px);
+  letter-spacing: -.025em; line-height: 1.15;
+  font-weight: 750;
+}
+
+/* Work gallery */
+.gallery {
+  display: flex; gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  margin: 0 -22px; padding-left: 22px; padding-right: 22px;
+  scrollbar-width: none;
+}
+.gallery::-webkit-scrollbar { display: none; }
+.gallery a {
+  flex: 0 0 72%;
+  max-width: 340px;
+  scroll-snap-align: start;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--hairline);
+  background: var(--card);
+  transition: transform .2s ease;
+}
+.gallery a:hover { transform: translateY(-3px); }
+.gallery img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.gallery figcaption { padding: 10px 14px; font-size: 13.5px; color: var(--ink-2); }
+.credit { font-size: 13px; color: var(--ink-2); margin-top: 10px; }
+@media (min-width: 760px) {
+  .gallery a { flex-basis: 31%; }
+  .gallery img { aspect-ratio: 4 / 5; }
+}
+
+/* Service cards */
+.cards {
+  display: grid; gap: 14px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  display: flex; gap: 14px; align-items: center;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease;
+}
+.card:hover { transform: translateY(-2px); }
+.card img { width: 64px; height: 64px; border-radius: 12px; object-fit: cover; flex: none; }
+.card .name { font-weight: 650; font-size: 15.5px; letter-spacing: -.01em; }
+.card .detail { font-size: 13.5px; color: var(--ink-2); margin-top: 2px; }
+
+/* Visit */
+.visit-grid { display: grid; gap: 14px; }
+@media (min-width: 860px) { .visit-grid { grid-template-columns: 1fr 1fr; align-items: stretch; } }
+.facts {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 8px 20px;
+}
+.fact { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--hairline); }
+.fact:last-child { border-bottom: 0; }
+.fact .label { flex: 0 0 84px; font-size: 13px; font-weight: 600; color: var(--ink-2); padding-top: 2px; }
+.fact .value { font-weight: 600; font-size: 15px; letter-spacing: -.01em; }
+.visit-cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 4px; }
+.map-link {
+  display: block; position: relative;
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow);
+  min-height: 100%;
+}
+.map-link img { width: 100%; height: 100%; object-fit: cover; }
+.map-link .map-badge {
+  position: absolute; left: 14px; bottom: 14px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(20, 17, 20, .82);
+  color: #fff;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  font-size: 13.5px; font-weight: 650;
+  padding: 9px 14px; border-radius: 999px;
+}
+.note {
+  margin-top: 16px;
+  border: 1px solid var(--hairline);
+  border-left: 3px solid var(--accent);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 14.5px; color: var(--ink-2);
+}
+.note strong { color: var(--ink); display: block; font-size: 15px; margin-bottom: 2px; }
+
+/* Footer */
+footer {
+  margin-top: 64px;
+  border-top: 1px solid var(--hairline);
+  padding: 28px 22px 110px;
+  text-align: center;
+  font-size: 13px; color: var(--ink-2);
+}
+@media (min-width: 760px) { footer { padding-bottom: 40px; } }
+footer a { color: inherit; }
+
+/* Sticky mobile call bar */
+.callbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  display: flex; gap: 8px;
+  padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--hairline);
+}
+.callbar .btn {
+  flex: 1 1 0; min-width: 0;
+  padding: 0 4px; gap: 5px;
+  font-size: clamp(12px, 3.9vw, 15px);
+  white-space: nowrap;
+}
+.callbar .btn svg { width: clamp(13px, 4.2vw, 16px); height: auto; flex: none; }
+@media (min-width: 760px) { .callbar { display: none; } }
+
+/* Intro gate: bi-parting scissor gate */
+.gate-intro {
+  position: fixed; inset: 0; z-index: 100;
+  pointer-events: none;
+  display: flex; flex-direction: column; justify-content: space-between;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: opacity .7s ease;
+}
+.gate-stage { position: relative; flex: 1; width: 100%; overflow: hidden; }
+.gate-elements { position: absolute; inset: 0; }
+.steel-track {
+  position: relative; width: 100%;
+  height: clamp(18px, 3.2vh, 30px);
+  background: linear-gradient(180deg, #1e293b 0%, #64748b 20%, #94a3b8 36%, #334155 60%, #0f172a 88%, #475569 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 6px 18px rgba(0,0,0,.75);
+  z-index: 30; flex-shrink: 0;
+}
+.steel-track-top { border-bottom: 1px solid #020617; display: flex; flex-direction: column; justify-content: flex-end; }
+.steel-track-bottom { border-top: 1px solid #475569; display: flex; flex-direction: column; justify-content: flex-start; }
+.steel-track-groove { width: 100%; height: clamp(5px, .9vh, 9px); background: linear-gradient(180deg, #020617 0%, #0f172a 60%, #1e293b 100%); box-shadow: inset 0 2px 5px rgba(0,0,0,.95); }
+.jamb-post { position: absolute; top: 0; bottom: 0; width: clamp(16px, 2.4vw, 32px); z-index: 30; }
+.jamb-left { left: 0; background: linear-gradient(90deg, #0f172a 0%, #334155 22%, #64748b 48%, #334155 78%, #0f172a 100%); border-right: 1px solid #475569; box-shadow: 4px 0 16px rgba(0,0,0,.75); }
+.jamb-right { right: 0; background: linear-gradient(90deg, #0f172a 0%, #334155 22%, #64748b 52%, #334155 78%, #0f172a 100%); border-left: 1px solid #475569; box-shadow: -4px 0 16px rgba(0,0,0,.75); }
+.picket {
+  position: absolute; top: 6px; bottom: 6px;
+  background: linear-gradient(90deg, #1e293b 0%, #64748b 25%, #cbd5e1 48%, #64748b 72%, #0f172a 100%);
+  border-left: 1px solid rgba(255,255,255,.2);
+  border-right: 1px solid rgba(0,0,0,.85);
+  box-shadow: 2px 0 6px rgba(0,0,0,.6);
+  border-radius: 1px;
+  will-change: transform;
+}
+.picket-lead {
+  background: linear-gradient(90deg, #0f172a 0%, #475569 20%, #e2e8f0 45%, #94a3b8 68%, #1e293b 90%, #020617 100%);
+  box-shadow: 3px 0 10px rgba(0,0,0,.8);
+}
+.roller-carriage {
+  position: absolute; height: 10px;
+  background: linear-gradient(180deg, #94a3b8 0%, #334155 100%);
+  border: 1px solid #0f172a; border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.85);
+  z-index: 25; will-change: transform;
+}
+.lattice-bar { position: absolute; transform-origin: 0% 50%; border-radius: 999px; will-change: transform; pointer-events: none; }
+.lattice-back {
+  background: linear-gradient(180deg, #334155 0%, #64748b 35%, #475569 70%, #1e293b 100%);
+  border-top: 1px solid rgba(255,255,255,.16);
+  border-bottom: 1px solid rgba(0,0,0,.8);
+  box-shadow: 0 2px 4px rgba(0,0,0,.65);
+  z-index: 10;
+}
+.lattice-front {
+  background: linear-gradient(180deg, #64748b 0%, #e2e8f0 32%, #94a3b8 68%, #334155 100%);
+  border-top: 1px solid rgba(255,255,255,.45);
+  border-bottom: 1px solid rgba(15,23,42,.85);
+  box-shadow: 0 3px 6px rgba(0,0,0,.7);
+  z-index: 20;
+}
+.rivet {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle at 32% 32%, #ffffff 0%, #cbd5e1 35%, #475569 75%, #0f172a 100%);
+  box-shadow: 0 1px 2px rgba(0,0,0,.9), inset 0 .5px .5px rgba(255,255,255,.8);
+  z-index: 26; pointer-events: none; will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gate-intro { display: none; }
+}
+
+/* Reveal motion */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-photos img { animation: none; }
+  .hero-photos img:first-child { opacity: 1; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .card, .gallery a { transition: none; }
+}
+</style>
+<!-- Vercel Web Analytics: collects visitors and page views once enabled in the Vercel project (Analytics tab). Safe before enabling; the script just 404s quietly. -->
+<script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<!-- Microsoft Clarity (heatmaps, taps, scrolls, session recordings): waiting for the Clarity project ID. Paste it over CLARITY_PROJECT_ID and uncomment.
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+</script>
+-->
+</head>
+<body>
+
+<div class="gate-intro" aria-hidden="true">
+  <div class="steel-track steel-track-top"><div class="steel-track-groove"></div></div>
+  <div class="gate-stage">
+    <div class="jamb-post jamb-left"></div>
+    <div class="gate-elements"></div>
+    <div class="jamb-post jamb-right"></div>
+  </div>
+  <div class="steel-track steel-track-bottom"><div class="steel-track-groove"></div></div>
+</div>
+<script>
+/* Bi-parting scissor gate intro, from the shop owner's gate file. Plays once per browser. */
+(function () {
+  var rootEl = document.querySelector('.gate-intro');
+  if (!rootEl) return;
+  var skip = false;
+  try {
+    if (window.localStorage && localStorage.getItem('jindal-gate-seen-v4')) skip = true;
+  } catch (e) {}
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) skip = true;
+  if (skip) { rootEl.parentNode.removeChild(rootEl); return; }
+  try { localStorage.setItem('jindal-gate-seen-v4', '1'); } catch (e) {}
+
+  var stageEl = rootEl.querySelector('.gate-stage');
+  var elementsContainer = rootEl.querySelector('.gate-elements');
+  var jambLeftEl = rootEl.querySelector('.jamb-left');
+
+  var baysPerWing = 4, diamondRows = 2, stageWidth = 0, stageHeight = 0;
+  var jambWidth = 24, barLength = 140, picketWidth = 10, leadWidth = 16, barThickness = 7, rivetSize = 6;
+  var openAmount = 0, targetOpenAmount = 1.0, velocity = 0;
+  var phase = 'HOLD_CLOSED', phaseTimer = 0.6, lastTime = 0, finished = false;
+  var wings = {
+    left: { pickets: [], topRollers: [], bottomRollers: [], bayLinks: [] },
+    right: { pickets: [], topRollers: [], bottomRollers: [], bayLinks: [] }
+  };
+
+  function rebuildGateDOM() {
+    elementsContainer.innerHTML = '';
+    ['left', 'right'].forEach(function (side) {
+      var wing = wings[side];
+      wing.pickets = []; wing.topRollers = []; wing.bottomRollers = []; wing.bayLinks = [];
+      var picketsCount = baysPerWing + 1;
+      for (var i = 0; i < picketsCount; i++) {
+        var isLead = (i === baysPerWing);
+        var w = isLead ? leadWidth : picketWidth;
+        var picket = document.createElement('div');
+        picket.className = isLead ? 'picket picket-lead' : 'picket';
+        picket.style.width = w + 'px';
+        picket.style.marginLeft = (-w * 0.5) + 'px';
+        elementsContainer.appendChild(picket);
+        wing.pickets.push(picket);
+        var rollerW = w + 6;
+        var topRoller = document.createElement('div');
+        topRoller.className = 'roller-carriage';
+        topRoller.style.width = rollerW + 'px';
+        topRoller.style.marginLeft = (-rollerW * 0.5) + 'px';
+        topRoller.style.top = '0px';
+        elementsContainer.appendChild(topRoller);
+        wing.topRollers.push(topRoller);
+        var bottomRoller = document.createElement('div');
+        bottomRoller.className = 'roller-carriage';
+        bottomRoller.style.width = rollerW + 'px';
+        bottomRoller.style.marginLeft = (-rollerW * 0.5) + 'px';
+        bottomRoller.style.bottom = '0px';
+        elementsContainer.appendChild(bottomRoller);
+        wing.bottomRollers.push(bottomRoller);
+      }
+      for (var b = 0; b < baysPerWing; b++) {
+        var rowLinks = [];
+        for (var r = 0; r < diamondRows; r++) {
+          var barBL_TR = document.createElement('div');
+          barBL_TR.className = 'lattice-bar lattice-back';
+          elementsContainer.appendChild(barBL_TR);
+          var barTL_BR = document.createElement('div');
+          barTL_BR.className = 'lattice-bar lattice-front';
+          elementsContainer.appendChild(barTL_BR);
+          var createRivet = function () {
+            var rv = document.createElement('div');
+            rv.className = 'rivet';
+            rv.style.width = rivetSize + 'px';
+            rv.style.height = rivetSize + 'px';
+            rv.style.marginLeft = (-rivetSize * 0.5) + 'px';
+            rv.style.marginTop = (-rivetSize * 0.5) + 'px';
+            elementsContainer.appendChild(rv);
+            return rv;
+          };
+          rowLinks.push({ barBL_TR: barBL_TR, barTL_BR: barTL_BR, centerRivet: createRivet(), rivetTL: createRivet(), rivetBL: createRivet(), rivetTR: createRivet(), rivetBR: createRivet() });
+        }
+        wing.bayLinks.push(rowLinks);
+      }
+    });
+  }
+
+  function updateResponsiveLayout() {
+    var rect = stageEl.getBoundingClientRect();
+    var fallbackW = window.innerWidth || document.documentElement.clientWidth || 1024;
+    var fallbackH = Math.max(200, (window.innerHeight || document.documentElement.clientHeight || 768) - 48);
+    stageWidth = (rect.width && rect.width > 10) ? rect.width : fallbackW;
+    stageHeight = (rect.height && rect.height > 10) ? rect.height : fallbackH;
+    var measuredJamb = jambLeftEl.getBoundingClientRect().width;
+    jambWidth = (measuredJamb && measuredJamb > 4) ? measuredJamb : Math.max(16, Math.min(32, stageWidth * 0.024));
+    var baseUnit = Math.min(stageWidth, stageHeight);
+    picketWidth = Math.max(8, Math.min(13, Math.round(baseUnit * 0.014)));
+    leadWidth = Math.max(12, Math.min(20, Math.round(baseUnit * 0.022)));
+    barThickness = Math.max(5.5, Math.min(9, Math.round(baseUnit * 0.011)));
+    rivetSize = Math.max(5, Math.min(8, Math.round(baseUnit * 0.01)));
+    var halfUsableWidth = Math.max(60, (stageWidth - jambWidth * 2) * 0.5);
+    var usableHeight = Math.max(120, stageHeight - 28);
+    var idealTierHeight = Math.max(150, Math.min(270, usableHeight / 2.2));
+    var nextDiamondRows = Math.max(1, Math.min(5, Math.round(usableHeight / idealTierHeight)));
+    var actualTierHeight = usableHeight / nextDiamondRows;
+    var targetClosedBayWidth = Math.max(56, Math.min(115, actualTierHeight * 0.56));
+    var nextBaysPerWing = Math.max(2, Math.round(halfUsableWidth / targetClosedBayWidth));
+    var needsRebuild = (nextBaysPerWing !== baysPerWing || nextDiamondRows !== diamondRows || wings.left.pickets.length === 0);
+    baysPerWing = nextBaysPerWing;
+    diamondRows = nextDiamondRows;
+    if (needsRebuild) rebuildGateDOM();
+    var maxBayWidth = halfUsableWidth / baysPerWing;
+    var maxTierHeight = actualTierHeight * 0.94;
+    barLength = Math.max(maxBayWidth * 1.15, Math.hypot(maxBayWidth, maxTierHeight * 0.88));
+    ['left', 'right'].forEach(function (side) {
+      var wing = wings[side];
+      for (var b = 0; b < baysPerWing; b++) {
+        for (var r = 0; r < diamondRows; r++) {
+          var item = wing.bayLinks[b][r];
+          item.barBL_TR.style.width = barLength + 'px';
+          item.barBL_TR.style.height = barThickness + 'px';
+          item.barBL_TR.style.marginTop = (-barThickness / 2) + 'px';
+          item.barTL_BR.style.width = barLength + 'px';
+          item.barTL_BR.style.height = barThickness + 'px';
+          item.barTL_BR.style.marginTop = (-barThickness / 2) + 'px';
+        }
+      }
+    });
+  }
+
+  function renderWing(side, wingExtension, anchorX, diamondHeight, angleRad, topOffset) {
+    var wing = wings[side];
+    var dir = (side === 'left') ? 1 : -1;
+    var maxWingSpan = Math.abs(stageWidth * 0.5 - anchorX);
+    var stackedBayWidth = picketWidth + 2.5;
+    var minWingSpan = Math.min(maxWingSpan * 0.48, stackedBayWidth * baysPerWing);
+    var currentWingSpan = minWingSpan + wingExtension * (maxWingSpan - minWingSpan);
+    var bayWidth = currentWingSpan / baysPerWing;
+    var picketsCount = baysPerWing + 1;
+    for (var i = 0; i < picketsCount; i++) {
+      var px = anchorX + dir * (i * bayWidth);
+      wing.pickets[i].style.transform = 'translate3d(' + px + 'px, 0, 0)';
+      wing.topRollers[i].style.transform = 'translate3d(' + px + 'px, 0, 0)';
+      wing.bottomRollers[i].style.transform = 'translate3d(' + px + 'px, 0, 0)';
+    }
+    for (var b = 0; b < baysPerWing; b++) {
+      var p1X = anchorX + dir * (b * bayWidth);
+      var p2X = anchorX + dir * ((b + 1) * bayWidth);
+      var leftX = Math.min(p1X, p2X);
+      var rightX = Math.max(p1X, p2X);
+      var midX = (leftX + rightX) * 0.5;
+      for (var r = 0; r < diamondRows; r++) {
+        var tierTopY = topOffset + r * diamondHeight;
+        var tierBottomY = tierTopY + diamondHeight;
+        var tierMidY = tierTopY + diamondHeight * 0.5;
+        var item = wing.bayLinks[b][r];
+        item.barTL_BR.style.transform = 'translate3d(' + leftX + 'px, ' + tierTopY + 'px, 0) rotate(' + angleRad + 'rad)';
+        item.barBL_TR.style.transform = 'translate3d(' + leftX + 'px, ' + tierBottomY + 'px, 0) rotate(' + (-angleRad) + 'rad)';
+        item.centerRivet.style.transform = 'translate3d(' + midX + 'px, ' + tierMidY + 'px, 0)';
+        item.rivetTL.style.transform = 'translate3d(' + leftX + 'px, ' + tierTopY + 'px, 0)';
+        item.rivetBL.style.transform = 'translate3d(' + leftX + 'px, ' + tierBottomY + 'px, 0)';
+        item.rivetTR.style.transform = 'translate3d(' + rightX + 'px, ' + tierTopY + 'px, 0)';
+        item.rivetBR.style.transform = 'translate3d(' + rightX + 'px, ' + tierBottomY + 'px, 0)';
+      }
+    }
+  }
+
+  function renderGate() {
+    if (!stageWidth || !stageHeight || !wings.left.pickets.length) updateResponsiveLayout();
+    openAmount = Number.isFinite(openAmount) ? Math.max(0, Math.min(1, openAmount)) : 0;
+    var wingExtension = 1.0 - openAmount;
+    var leftAnchorX = jambWidth + picketWidth * 0.5;
+    var rightAnchorX = stageWidth - jambWidth - picketWidth * 0.5;
+    var halfLead = leadWidth * 0.5;
+    var leftCenterTargetX = stageWidth * 0.5 - halfLead;
+    var maxWingSpan = Math.max(20, leftCenterTargetX - leftAnchorX);
+    var stackedBayWidth = picketWidth + 2.5;
+    var minWingSpan = Math.min(maxWingSpan * 0.48, stackedBayWidth * baysPerWing);
+    var currentWingSpan = minWingSpan + wingExtension * (maxWingSpan - minWingSpan);
+    var bayWidth = currentWingSpan / baysPerWing;
+    var clampedW = Math.min(barLength * 0.985, bayWidth);
+    var diamondHeight = Math.sqrt(Math.max(0, barLength * barLength - clampedW * clampedW));
+    var angleRad = Math.atan2(diamondHeight, clampedW);
+    var totalPantographHeight = diamondHeight * diamondRows;
+    var topOffset = (stageHeight - totalPantographHeight) * 0.5;
+    renderWing('left', wingExtension, leftAnchorX, diamondHeight, angleRad, topOffset);
+    renderWing('right', wingExtension, rightAnchorX, diamondHeight, angleRad, topOffset);
+    var blur = Math.round(18 * (1 - openAmount) * 10) / 10;
+    rootEl.style.backdropFilter = 'blur(' + blur + 'px)';
+    rootEl.style.webkitBackdropFilter = 'blur(' + blur + 'px)';
+  }
+
+  function animate(now) {
+    if (finished) return;
+    if (!lastTime) lastTime = now;
+    var dt = Math.max(0.001, Math.min(0.05, (now - lastTime) / 1000));
+    lastTime = now;
+    if (phase === 'HOLD_CLOSED') {
+      phaseTimer -= dt;
+      if (phaseTimer <= 0) phase = 'OPENING';
+    } else {
+      var diff = targetOpenAmount - openAmount;
+      var widthScale = Math.max(0.75, Math.min(3.0, (stageWidth || 390) / 390));
+      var speedMul = openAmount >= 0.8 ? 3.0 : 1.0;
+      var stiffness = 9.0 * speedMul * speedMul / (widthScale * widthScale), damping = 6.0 * speedMul / widthScale;
+      var accel = diff * stiffness - velocity * damping;
+      velocity += accel * dt;
+      openAmount += velocity * dt;
+      if (Math.abs(diff) < 0.0015 && Math.abs(velocity) < 0.004) {
+        openAmount = targetOpenAmount;
+        velocity = 0;
+        finished = true;
+        renderGate();
+        rootEl.style.opacity = '0';
+        setTimeout(function () { if (rootEl.parentNode) rootEl.parentNode.removeChild(rootEl); }, 800);
+        return;
+      }
+    }
+    renderGate();
+    requestAnimationFrame(animate);
+  }
+
+  if (typeof ResizeObserver !== 'undefined') {
+    var ro = new ResizeObserver(function () { updateResponsiveLayout(); renderGate(); });
+    ro.observe(stageEl);
+  }
+  window.addEventListener('resize', function () { updateResponsiveLayout(); renderGate(); });
+  updateResponsiveLayout();
+  renderGate();
+  requestAnimationFrame(animate);
+})();
+</script>
+
+<div class="lang-switch" role="group" aria-label="Language">
+  <button type="button" data-lang="en" class="on">EN</button>
+  <button type="button" data-lang="hi">हिंदी</button>
+</div>
+
+<header class="hero">
+  <div class="hero-photos" aria-hidden="true">
+    <img src="hero-1.jpg" alt="" fetchpriority="high">
+    <img src="hero-2.jpg" alt="" loading="lazy">
+    <img src="hero-3.jpg" alt="" loading="lazy">
+    <img src="hero-4.jpg" alt="" loading="lazy">
+  </div>
+  <div class="hero-inner">
+    <span class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">Open 9 am - 7 pm, every day</span></span>
+    <h1 data-i18n="h1">Darbhanga Jindal Stainless Steel &amp; Aluminium Works</h1>
+    <p class="sub" data-i18n="sub">Custom stainless steel and aluminium fabrication in Shivdhara, Darbhanga. Gates, railings, sheds and more, made to order in our own workshop.</p>
+    <div class="hero-icons">
+      <a href="tel:07783012635" aria-label="Call 077830 12635" title="Call" data-i18n-aria="callAria" data-i18n-title="callTitle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <a href="https://wa.me/917783012635?text=Hello%20Md%20Shahid%20Bhai%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A5%80%E0%A4%B2%20%2F%20%E0%A4%8F%E0%A4%B2%E0%A5%8D%E0%A4%AF%E0%A5%81%E0%A4%AE%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%20%E0%A4%95%E0%A4%BE%20%E0%A4%95%E0%A4%BE%E0%A4%AE%20%E0%A4%95%E0%A4%B0%E0%A4%B5%E0%A4%BE%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp" data-i18n-aria="waAria">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      </a>
+      <a href="https://maps.app.goo.gl/9jXuVmwMSvKZH2Rj8" target="_blank" rel="noopener" aria-label="Directions on Google Maps" title="Directions" data-i18n-aria="dirAria" data-i18n-title="dirTitle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="work">
+    <div class="section-head reveal">
+      <div class="kicker" data-i18n="kickerWork">Recent work</div>
+      <h2 data-i18n="workH2">Built in our workshop, fitted across Darbhanga</h2>
+    </div>
+    <div class="gallery reveal">
+      <a href="gate-arch.jpg" target="_blank" rel="noopener">
+        <img src="gate-arch.jpg" alt="Stainless steel entry gate with an arched top, fitted in a home" loading="lazy" data-i18n-alt="alt1">
+        <figcaption data-i18n="cap1">Arched entry gate, stainless steel</figcaption>
+      </a>
+      <a href="main-gate.jpg" target="_blank" rel="noopener">
+        <img src="main-gate.jpg" alt="Large stainless steel main gate with panel work, ready at the workshop" loading="lazy" data-i18n-alt="alt2">
+        <figcaption data-i18n="cap2">Main gate with panel work</figcaption>
+      </a>
+      <a href="shed.jpg" target="_blank" rel="noopener">
+        <img src="shed.jpg" alt="Steel shed and roofing work with colour cladding" loading="lazy" data-i18n-alt="alt3">
+        <figcaption data-i18n="cap3">Shed and roofing work</figcaption>
+      </a>
+      <a href="swing.jpg" target="_blank" rel="noopener">
+        <img src="swing.jpg" alt="Stainless steel swing frame made to order" loading="lazy" data-i18n-alt="alt4">
+        <figcaption data-i18n="cap4">Swing frame, made to order</figcaption>
+      </a>
+      <a href="work-gate-wood.jpg" target="_blank" rel="noopener">
+        <img src="work-gate-wood.jpg" alt="Steel double gate with wood-finish panels, freshly installed at a home" loading="lazy" data-i18n-alt="alt5">
+        <figcaption data-i18n="cap5">Double gate with wood panels</figcaption>
+      </a>
+      <a href="work-geo-frame.jpg" target="_blank" rel="noopener">
+        <img src="work-geo-frame.jpg" alt="Geometric steel frame welded at the workshop, ready for fitting" loading="lazy" data-i18n-alt="alt6">
+        <figcaption data-i18n="cap6">Geometric steel frame, in the works</figcaption>
+      </a>
+      <a href="work-gold-grill.jpg" target="_blank" rel="noopener">
+        <img src="work-gold-grill.jpg" alt="Black window grill with gold flower accents, made to order" loading="lazy" data-i18n-alt="alt7">
+        <figcaption data-i18n="cap7">Window grill with gold accents</figcaption>
+      </a>
+      <a href="designs-lines.jpg" target="_blank" rel="noopener">
+        <img src="designs-lines.jpg" alt="Catalog sheet of grill design line drawings to choose from" loading="lazy" data-i18n-alt="alt8">
+        <figcaption data-i18n="cap8">Grill design book, pick a pattern</figcaption>
+      </a>
+      <a href="designs-window.jpg" target="_blank" rel="noopener">
+        <img src="designs-window.jpg" alt="Fifteen numbered window grill designs to choose from" loading="lazy" data-i18n-alt="alt9">
+        <figcaption data-i18n="cap9">15 window grill designs, pick a number</figcaption>
+      </a>
+    </div>
+    <p class="credit reveal" data-i18n="credit">Photos shared by the shop and from its Google Business Profile.</p>
+  </section>
+
+  <section id="services">
+    <div class="section-head reveal">
+      <div class="kicker" data-i18n="kickerMake">What we make</div>
+      <h2 data-i18n="makeH2">Steel and aluminium, measured for your space</h2>
+    </div>
+    <div class="cards reveal">
+      <div class="card">
+        <img src="main-gate.jpg" alt="" loading="lazy">
+        <div><div class="name" data-i18n="s1n">Main gates</div><div class="detail" data-i18n="s1d">Stainless steel gates in modern and classic designs, sized to your entrance.</div></div>
+      </div>
+      <div class="card">
+        <img src="gate-arch.jpg" alt="" loading="lazy">
+        <div><div class="name" data-i18n="s2n">Entry and safety doors</div><div class="detail" data-i18n="s2d">Steel doors and grills for homes and shops.</div></div>
+      </div>
+      <div class="card">
+        <img src="shop-day.jpg" alt="" loading="lazy">
+        <div><div class="name" data-i18n="s3n">Railings</div><div class="detail" data-i18n="s3d">Staircase, balcony and boundary railings.</div></div>
+      </div>
+      <div class="card">
+        <img src="shed.jpg" alt="" loading="lazy">
+        <div><div class="name" data-i18n="s4n">Sheds and roofing</div><div class="detail" data-i18n="s4d">Steel structures with colour-coated sheet cladding.</div></div>
+      </div>
+      <div class="card">
+        <img src="swing.jpg" alt="" loading="lazy">
+        <div><div class="name" data-i18n="s5n">Swings and custom frames</div><div class="detail" data-i18n="s5d">Jhulas, stands and one-off fabrication to order.</div></div>
+      </div>
+      <div class="card">
+        <img src="gate-arch.jpg" alt="" loading="lazy">
+        <div><div class="name" data-i18n="s6n">Aluminium work</div><div class="detail" data-i18n="s6d">Windows, doors and sections in aluminium.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="section-head reveal">
+      <div class="kicker" data-i18n="kickerVisit">Visit or call</div>
+      <h2 data-i18n="visitH2">On Ajamnagar Main Road, Shivdhara</h2>
+    </div>
+    <div class="visit-grid reveal">
+      <div>
+        <div class="facts">
+          <div class="fact"><div class="label" data-i18n="lAddress">Address</div><div class="value" data-i18n="vAddress">Shivdhara, Ajamnagar Main Rd, Sundarpur, Darbhanga, Bihar 846004</div></div>
+          <div class="fact"><div class="label" data-i18n="lHours">Hours</div><div class="value" data-i18n="vHours">9 am - 7 pm, every day</div></div>
+          <div class="fact"><div class="label" data-i18n="lPhone">Phone</div><div class="value"><a href="tel:07783012635">077830 12635</a></div></div>
+          <div class="fact"><div class="label" data-i18n="lOwner">Owner</div><div class="value" data-i18n="vOwner">Mohammad Shahid (Mona)</div></div>
+        </div>
+        <div class="visit-cta">
+          <a class="btn btn-primary" href="tel:07783012635">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span data-i18n="callBtn">Call 077830 12635</span>
+          </a>
+          <a class="btn btn-outline" href="https://wa.me/917783012635?text=Hello%20Md%20Shahid%20Bhai%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A5%80%E0%A4%B2%20%2F%20%E0%A4%8F%E0%A4%B2%E0%A5%8D%E0%A4%AF%E0%A5%81%E0%A4%AE%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%20%E0%A4%95%E0%A4%BE%20%E0%A4%95%E0%A4%BE%E0%A4%AE%20%E0%A4%95%E0%A4%B0%E0%A4%B5%E0%A4%BE%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            <span data-i18n="waBtn">WhatsApp</span>
+          </a>
+          <a class="btn btn-outline" href="https://maps.app.goo.gl/9jXuVmwMSvKZH2Rj8" target="_blank" rel="noopener" data-i18n="dirBtn">Directions on Google Maps</a>
+        </div>
+        <div class="note">
+          <strong data-i18n="noteStrong">Made to order</strong>
+          <span data-i18n="noteText">Bring a photo or a rough size of what you need. Every piece is measured and built for your space.</span>
+        </div>
+      </div>
+      <a class="map-link" href="https://maps.app.goo.gl/9jXuVmwMSvKZH2Rj8" target="_blank" rel="noopener" aria-label="Open the shop's Google Maps listing" data-i18n-aria="mapAria">
+        <img src="map.png" alt="Map showing the shop on Ajamnagar Main Road, Shivdhara" loading="lazy" data-i18n-alt="mapAlt">
+        <span class="map-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="mapBadge">Photos, reviews and directions on Google</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span data-i18n="footer1">Darbhanga Jindal Stainless Steel &amp; Aluminium Works · Shivdhara, Darbhanga</span><br>
+  <span data-i18n="footer2">Open 9 am - 7 pm, every day · 077830 12635</span><br>
+  <a href="https://wa.me/917783012635?text=Hello%20Md%20Shahid%20Bhai%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A5%80%E0%A4%B2%20%2F%20%E0%A4%8F%E0%A4%B2%E0%A5%8D%E0%A4%AF%E0%A5%81%E0%A4%AE%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%20%E0%A4%95%E0%A4%BE%20%E0%A4%95%E0%A4%BE%E0%A4%AE%20%E0%A4%95%E0%A4%B0%E0%A4%B5%E0%A4%BE%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4" target="_blank" rel="noopener">WhatsApp</a>
+</footer>
+
+<nav class="callbar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="tel:07783012635">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span data-i18n="callNow">Call</span>
+  </a>
+  <a class="btn btn-outline" href="https://wa.me/917783012635?text=Hello%20Md%20Shahid%20Bhai%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A5%80%E0%A4%B2%20%2F%20%E0%A4%8F%E0%A4%B2%E0%A5%8D%E0%A4%AF%E0%A5%81%E0%A4%AE%E0%A4%BF%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%AE%20%E0%A4%95%E0%A4%BE%20%E0%A4%95%E0%A4%BE%E0%A4%AE%20%E0%A4%95%E0%A4%B0%E0%A4%B5%E0%A4%BE%E0%A4%A8%E0%A4%BE%20%E0%A4%B9%E0%A5%88%E0%A5%A4" target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <a class="btn btn-outline" href="https://maps.app.goo.gl/9jXuVmwMSvKZH2Rj8" target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span data-i18n="dirNow">Directions</span>
+  </a>
+</nav>
+
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+<script>
+(function () {
+  var HI = {
+    docTitle: "दरभंगा जिंदल स्टेनलेस स्टील एंड एल्युमिनियम वर्क्स",
+    eyebrow: "सुबह 9 बजे - शाम 7 बजे, हर दिन खुला",
+    h1: "दरभंगा जिंदल स्टेनलेस स्टील एंड एल्युमिनियम वर्क्स",
+    sub: "शिवधारा, दरभंगा में स्टेनलेस स्टील और एल्युमिनियम का काम। गेट, रेलिंग, शेड और बहुत कुछ, अपनी वर्कशॉप में ऑर्डर पर बनता है।",
+    callAria: "077830 12635 पर कॉल करें",
+    callTitle: "कॉल करें",
+    waAria: "WhatsApp पर बात करें",
+    dirAria: "गूगल मैप्स पर रास्ता देखें",
+    dirTitle: "रास्ता",
+    kickerWork: "हमारा काम",
+    workH2: "अपनी वर्कशॉप में बना, पूरे दरभंगा में लगा हुआ",
+    credit: "फोटो दुकान ने दी हैं और कुछ इसकी Google Business Profile से हैं।",
+    kickerMake: "हम क्या बनाते हैं",
+    makeH2: "स्टील और एल्युमिनियम, आपकी जगह के नाप से",
+    kickerVisit: "आएँ या कॉल करें",
+    visitH2: "अजमनगर मेन रोड, शिवधारा",
+    lAddress: "पता",
+    vAddress: "शिवधारा, अजमनगर मेन रोड, सुंदरपुर, दरभंगा, बिहार 846004",
+    lHours: "समय",
+    vHours: "सुबह 9 बजे - शाम 7 बजे, हर दिन",
+    lPhone: "फ़ोन",
+    lOwner: "मालिक",
+    vOwner: "मोहम्मद शाहिद (मोना)",
+    callBtn: "077830 12635 पर कॉल करें",
+    waBtn: "WhatsApp",
+    dirBtn: "गूगल मैप्स पर रास्ता देखें",
+    noteStrong: "ऑर्डर पर बनता है",
+    noteText: "जो बनवाना है उसकी फोटो या अंदाज़न नाप ले आएँ। हर चीज़ आपकी जगह के नाप से मापकर बनाई जाती है।",
+    mapBadge: "गूगल पर फोटो, रिव्यू और रास्ता",
+    mapAria: "दुकान की गूगल मैप्स लिस्टिंग खोलें",
+    mapAlt: "अजमनगर मेन रोड, शिवधारा पर दुकान दिखाता नक्शा",
+    footer1: "दरभंगा जिंदल स्टेनलेस स्टील एंड एल्युमिनियम वर्क्स · शिवधारा, दरभंगा",
+    footer2: "सुबह 9 बजे - शाम 7 बजे, हर दिन · 077830 12635",
+    callNow: "कॉल",
+    dirNow: "रास्ता",
+    cap1: "आर्च वाला एंट्री गेट, स्टेनलेस स्टील",
+    cap2: "पैनल वर्क वाला मेन गेट",
+    cap3: "शेड और छत का काम",
+    cap4: "झूले का फ्रेम, ऑर्डर पर बना",
+    cap5: "लकड़ी के पैनल वाला डबल गेट",
+    cap6: "ज्योमेट्रिक स्टील फ्रेम, तैयारी में",
+    cap7: "सुनहरे डिज़ाइन वाली खिड़की की ग्रिल",
+    cap8: "ग्रिल डिज़ाइन बुक, पैटर्न चुनें",
+    cap9: "खिड़की की ग्रिल के 15 डिज़ाइन, नंबर चुनें",
+    alt1: "घर में लगा आर्च वाला स्टेनलेस स्टील एंट्री गेट",
+    alt2: "वर्कशॉप में तैयार पैनल वर्क वाला बड़ा स्टेनलेस स्टील मेन गेट",
+    alt3: "कलर शीट के साथ स्टील शेड और छत का काम",
+    alt4: "ऑर्डर पर बना स्टेनलेस स्टील झूले का फ्रेम",
+    alt5: "घर में नया लगा लकड़ी के पैनल वाला स्टील डबल गेट",
+    alt6: "वर्कशॉप में बना ज्योमेट्रिक स्टील फ्रेम, फिटिंग के लिए तैयार",
+    alt7: "ऑर्डर पर बनी सुनहरे फूलों वाली काली खिड़की की ग्रिल",
+    alt8: "ग्रिल डिज़ाइन चुनने के लिए लाइन ड्रॉइंग वाली कैटलॉग शीट",
+    alt9: "चुनने के लिए खिड़की की ग्रिल के 15 नंबर वाले डिज़ाइन",
+    s1n: "मेन गेट", s1d: "आधुनिक और क्लासिक डिज़ाइन के स्टेनलेस स्टील गेट, आपकी एंट्री के नाप के।",
+    s2n: "एंट्री और सेफ्टी दरवाज़े", s2d: "घरों और दुकानों के लिए स्टील के दरवाज़े और ग्रिल।",
+    s3n: "रेलिंग", s3d: "सीढ़ी, बालकनी और बाउंड्री की रेलिंग।",
+    s4n: "शेड और छत", s4d: "कलर-कोटेड शीट वाले स्टील स्ट्रक्चर।",
+    s5n: "झूले और कस्टम फ्रेम", s5d: "झूले, स्टैंड और ऑर्डर पर एक-एक पीस बनता है।",
+    s6n: "एल्युमिनियम का काम", s6d: "एल्युमिनियम की खिड़कियाँ, दरवाज़े और सेक्शन।"
+  };
+  var ENTITLE = document.title;
+  function swap(attr, prop, lang) {
+    document.querySelectorAll('[data-i18n' + attr + ']').forEach(function (el) {
+      var k = el.getAttribute('data-i18n' + attr);
+      var orig = el.getAttribute('data-en' + attr);
+      if (orig === null) {
+        orig = prop ? el.getAttribute(prop) : el.textContent;
+        el.setAttribute('data-en' + attr, orig);
+      }
+      var v = (lang === 'hi') ? HI[k] : null;
+      if (v) { if (prop) el.setAttribute(prop, v); else el.textContent = v; }
+      else if (orig !== null) { if (prop) el.setAttribute(prop, orig); else el.textContent = orig; }
+    });
+  }
+  function setLang(lang) {
+    try { localStorage.setItem('jindal-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang;
+    document.title = lang === 'hi' ? HI.docTitle : ENTITLE;
+    swap('', null, lang); swap('-aria', 'aria-label', lang); swap('-title', 'title', lang); swap('-alt', 'alt', lang);
+    document.querySelectorAll('.lang-switch button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+    });
+  }
+  document.querySelectorAll('.lang-switch button').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('jindal-lang'); } catch (e) {}
+  if (saved === 'hi') setLang('hi');
+})();
+</script>
+
+</body>
+</html>
